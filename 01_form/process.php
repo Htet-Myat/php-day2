@@ -1,16 +1,3 @@
-<?php
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $name  = trim($_POST["name"] ?? "");
-    $email = trim($_POST["email"] ?? "");
-    $age   = $_POST["age"] ?? "";
-} else {
-    exit("Invalid Request!");
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,21 +47,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h2>Registration Successful!</h2>
 
         <div class="item">
-            <strong>Name:</strong>
-            <?= htmlspecialchars($name) ?>
+            <strong>Name:</strong> Mg Mg
         </div>
 
         <div class="item">
-            <strong>Email:</strong>
-            <?= $email ?>
+            <strong>Email:</strong> mgmg@gmail.com
         </div>
 
         <div class="item">
-            <strong>Age:</strong>
-            <?= $age ?>
+            <strong>Age:</strong> 20
         </div>
 
-        <a href="form.php">Back to Registration</a>
+        <a href="index.html">Back to Registration</a>
 
     </div>
 

@@ -1,49 +1,9 @@
-<?php
-
-class Student
-{
-    public string $name;
-    public string $email;
-    public int $age;
-
-    public function __construct(
-        string $name,
-        string $email,
-        int $age
-    ) {
-        $this->name = $name;
-        $this->email = $email;
-        $this->age = $age;
-    }
-
-    public function getInformation(): string
-    {
-        return "My name is {$this->name}. "
-            . "My email is {$this->email}. "
-            . "I am {$this->age} years old.";
-    }
-}
-
-$student1 = new Student(
-    "Mg Mg",
-    "mgmg@gmail.com",
-    20
-);
-
-$student2 = new Student(
-    "Aung Aung",
-    "aung@gmail.com",
-    22
-);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>PHP OOP</title>
+    <title>Student Information</title>
 
     <style>
         body {
@@ -84,12 +44,14 @@ $student2 = new Student(
 
         <div class="student-card">
             <h3>Student 1</h3>
-            <p><?= htmlspecialchars($student1->getInformation()) ?></p>
+            <!-- PHP ကနေ ထွက်လာမယ့် စာသားကို တိုက်ရိုက်ရေးထည့်ထားပါတယ် -->
+            <p>My name is Mg Mg. My email is mgmg@gmail.com. I am 20 years old.</p>
         </div>
 
         <div class="student-card">
             <h3>Student 2</h3>
-            <p><?= htmlspecialchars($student2->getInformation()) ?></p>
+            <!-- PHP ကနေ ထွက်လာမယ့် စာသားကို တိုက်ရိုက်ရေးထည့်ထားပါတယ် -->
+            <p>My name is Aung Aung. My email is aung@gmail.com. I am 22 years old.</p>
         </div>
 
     </div>

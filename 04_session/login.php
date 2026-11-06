@@ -1,29 +1,3 @@
-<?php
-session_start();
-
-$error = "";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $username = trim($_POST["username"] ?? "");
-    $password = $_POST["password"] ?? "";
-
-    // Demo credentials only
-    if ($username === "admin" && $password === "12345678") {
-
-        session_regenerate_id(true);
-
-        $_SESSION["username"] = $username;
-        $_SESSION["logged_in"] = true;
-
-        header("Location: dashboard.php");
-        exit;
-    } else {
-        $error = "Invalid username or password.";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,12 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <h2>Student Login</h2>
 
-        <?php if ($error): ?>
-            <p class="error"><?= htmlspecialchars($error) ?></p>
-        <?php endif; ?>
+        <!-- Error ပုံစံပြချင်ရင် ဒီကို ဖွင့်ပါ -->
+        <!-- 
+        <p class="error">Invalid username or password.</p> 
+        -->
 
-        <form method="POST">
-
+        <form>
             <label>Username</label>
             <input type="text" name="username" required>
 
@@ -104,7 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="password" name="password" required>
 
             <button type="submit">Login</button>
-
         </form>
 
     </div>

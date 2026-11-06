@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>PHP Student Portal</title>
+    <title>Student Portal</title>
 
     <style>
         * {
@@ -61,31 +61,26 @@
     </header>
 
     <nav>
-        <a href="index.php">Home</a>
+        <!-- .php နေရာမှာ .html ပြောင်းထားပါတယ် -->
+        <a href="index.html">Home</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
     </nav>
-
-
-    <!-- index.php -->
 
     <div class="content">
 
         <h2>Welcome to Student Portal</h2>
 
         <p>
-            This is a simple PHP website using
-            include and require.
+            This is a simple website layout.
         </p>
 
         <p>
-            Header and Footer are reused from
-            separate PHP files.
+            The Header and Footer sections are reused across the pages.
         </p>
 
     </div>
 
-    <!-- footer -->
     <footer>
         <p>&copy; 2026 Student Management Portal</p>
     </footer>

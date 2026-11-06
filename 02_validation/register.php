@@ -1,54 +1,3 @@
-<?php
-
-$errors = [];
-$success = false;
-
-$name = "";
-$email = "";
-$age = "";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $name = trim($_POST["name"] ?? "");
-    $email = trim($_POST["email"] ?? "");
-    $age = trim($_POST["age"] ?? "");
-    $password = $_POST["password"] ?? "";
-
-    // Name validation
-    if ($name === "") {
-        $errors[] = "Name is required.";
-    }
-
-    // Email validation
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Invalid email address.";
-    }
-
-    // Age validation
-    $ageNumber = filter_var($age, FILTER_VALIDATE_INT);
-
-    if ($ageNumber === false || $ageNumber < 18 || $ageNumber > 60) {
-        $errors[] = "Age must be between 18 and 60.";
-    }
-
-    // Password validation
-    if (strlen($password) < 8) {
-        $errors[] = "Password must contain at least 8 characters.";
-    }
-
-    if (empty($errors)) {
-
-        $hashedPassword = password_hash(
-            $password,
-            PASSWORD_DEFAULT
-        );
-
-        $success = true;
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,48 +77,40 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <h2>Secure Student Registration</h2>
 
-        <?php if (!empty($errors)): ?>
-            <div class="error">
-                <?php foreach ($errors as $error): ?>
-                    <p><?= htmlspecialchars($error) ?></p>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
+        <!-- Error Message (ပုံစံပြရန်အတွက်သာ) -->
+        <!-- 
+        <div class="error">
+            <p>Name is required.</p>
+            <p>Invalid email address.</p>
+        </div> 
+        -->
 
-        <?php if ($success): ?>
+        <!-- Success Message (ပုံစံပြရန်အတွက်သာ) -->
+        <!-- 
+        <div class="success">
+            <h3>Registration Validated!</h3>
+            <p>Name: Mg Mg</p>
+            <p>Email: mgmg@gmail.com</p>
+            <p>Age: 20</p>
+            <p>Password has been hashed successfully.</p>
+        </div> 
+        -->
 
-            <div class="success">
-                <h3>Registration Validated!</h3>
-                <p>Name: <?= htmlspecialchars($name) ?></p>
-                <p>Email: <?= htmlspecialchars($email) ?></p>
-                <p>Age: <?= htmlspecialchars($age) ?></p>
-                <p>Password has been hashed successfully.</p>
-            </div>
+        <form>
+            <label>Student Name</label>
+            <input type="text" name="name" required>
 
-        <?php else: ?>
+            <label>Email</label>
+            <input type="email" name="email" required>
 
-            <form method="POST">
+            <label>Age</label>
+            <input type="number" name="age" required>
 
-                <label>Student Name</label>
-                <input type="text" name="name"
-                    value="<?= htmlspecialchars($name) ?>" required>
+            <label>Password</label>
+            <input type="password" name="password" required>
 
-                <label>Email</label>
-                <input type="email" name="email"
-                    value="<?= htmlspecialchars($email) ?>" required>
-
-                <label>Age</label>
-                <input type="number" name="age"
-                    value="<?= htmlspecialchars($age) ?>" required>
-
-                <label>Password</label>
-                <input type="password" name="password" required>
-
-                <button type="submit">Validate Registration</button>
-
-            </form>
-
-        <?php endif; ?>
+            <button type="submit">Validate Registration</button>
+        </form>
 
     </div>
 

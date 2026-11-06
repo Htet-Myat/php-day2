@@ -1,14 +1,3 @@
-<?php
-session_start();
-
-if (empty($_SESSION["logged_in"])) {
-    header("Location: login.php");
-    exit;
-}
-
-$username = $_SESSION["username"];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,11 +42,13 @@ $username = $_SESSION["username"];
 
     <div class="dashboard">
 
-        <h2>Welcome, <?= htmlspecialchars($username) ?>!</h2>
+        <!-- PHP ဖြုတ်ထားတဲ့အတွက် နမူနာအနေနဲ့ Admin လို့ ရေးထားပါတယ် -->
+        <h2>Welcome, Admin!</h2>
 
         <p>You have successfully logged in.</p>
 
-        <a href="logout.php">Logout</a>
+        <!-- ပြန်ထွက်မယ့် Link ကို login.html လို့ ပြောင်းထားပါတယ် -->
+        <a href="login.html">Logout</a>
 
     </div>
 
